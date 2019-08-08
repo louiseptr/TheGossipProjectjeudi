@@ -1,0 +1,47 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+
+<div class="container text-center">    
+    <div class="row">
+        <div class='col-sm-2'>
+        </div>
+        <div class="col-sm-9">
+            <div class='row'>
+                <%@gossips.each do |gossip|%>
+                    <div class='col-sm-4 author-tab'>
+                        <div class="list-group" role='tablist'>
+                            <a href="<%= user_path(gossip.user.id)%>" class="list-group-item list-group-item-action" role='tab'>
+                                <h5 class="mb-1"><%= gossip.user.first_name%></h5>
+                                <p><%= gossip.user.email%></p>
+                                <p><%= gossip.user.city.name%></p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class='col-sm-8 gossip-tab'>
+                        <div class="list-group" role='tablist'>
+                            <a href="<%= gossip_path(gossip.id)%>" class="list-group-item list-group-item-action" role='tab'>
+                            <div class="d-flex w-80 justify-content-between">
+                                <h5 class="mb-1"><%= gossip.title%></h5>
+                                <small><%= gossip.created_at%></small>
+                            </div>
+                            <p class="mb-1 text-left"><%= gossip.content%></p>
+                            </a>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    <div class='col-sm-2'></div>
+    </div>
+</div>
+
+
+<div class="jumbotron gossip_creation_button_jumbo">
+    <h1 class="display-4">Créer un gossip</h1>
+    <p class="lead">Veuillez cliquer sur le boutton ci-dessous <br> afin de créer un nouveau gossip.</p>
+    <p class="lead">
+    <div class="btn btn-primary btn-lg" role="button"><%=link_to "Créer un potin", new_gossip_path %></div>
+    </p>
+</div>		
+    

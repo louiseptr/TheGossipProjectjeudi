@@ -1,0 +1,80 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cards-gossip{
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.between-cards{
+    margin: 5px;
+    padding: 5px;
+}
+
+.card-home{
+    height: 200px;
+    min-width: 200px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.container {
+    width: 90%;
+}
+
+.btn a{
+    color: white
+}
+
+.card{
+    min-height: 200px;
+    margin: 20px;
+}
+
+
+.card-body{
+    height: 100%;
+    width: 99%;
+}
+
+.card-img-top img{
+    width:20%
+}
+
+
+// Contact
+
+.col-md-6{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mt30{
+    margin: 0px;
+}
+
+.contact{
+    background-image: url('team.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+// Welcome page
+.gossip {
+    background-image: url('photo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 900px;
+    text-align: center
+}

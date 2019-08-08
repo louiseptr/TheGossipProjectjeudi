@@ -1,0 +1,66 @@
+<!--AUTEUR-->
+<div class='container'>
+<div class="card text-left">
+    <div class="card-header">
+        <%= @user.first_name%> <%= @user.last_name%>
+    </div>
+    <div class="card-img-top"><%= image_tag("photo-avatar-profil.png", :alt => "rss feed") %></div>
+    <div class="card-body">
+        <dl>
+            <dt>Age</dt>
+            <dd><%= @user.age%></dd>
+            <dt>Email</dt>
+            <dd><%= @user.email%></dd>
+            <dt>Description</dt>
+            <dd><%= @user.description%></dd>
+            <dt>Ville</dt>
+            <dd><%= link_to "#{@user.city.name}", city_path(@user.city.id)%></dd>
+        </dl> 
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th> 
+        <th scope="col">Gossips</th>
+        <th scope="col">Lien</th> 
+    </tr>
+    </thead>
+    <tbody>
+    <% @user.gossips.each do |gossip| %>
+        <tr>
+        <td><%= gossip.id %></td>
+        <td><%=gossip.content %></td>
+        <td><%= link_to "Gossip", gossip_path(gossip.id) %></td>
+        </tr> 
+    <% end %>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th> 
+        <th scope="col">Commentaires</th>
+        <th scope="col">Lien gossip</th> 
+    </tr>
+    </thead>
+    <tbody>
+    <% @user.comments.each do |comment| %>
+        <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.content %></td>
+        <% commentable = comment
+        gossip = commentable.commentable_type
+        while gossip != 'Gossip'
+            commentable = Comment.all.find(commentable.commentable_id)
+            gossip = commentable.commentable_type
+        end 
+        %>
+        <td><%= link_to "#{gossip}", gossip_path(commentable.commentable_id) %></td>
+        </tr> 
+    <% end %>
+    </tbody>
+</table>
+</div>

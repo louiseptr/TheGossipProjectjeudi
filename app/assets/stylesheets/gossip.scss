@@ -1,0 +1,33 @@
+// Place all the styles related to the gossip controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Index
+
+.gossip_creation_button_jumbo{
+    background-image: url('photo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    color: white;
+}
+
+.gossip-tab, .author-tab{
+    height : 150px;
+    max-height: 150px;
+    min-height: 150px;
+    padding:5px 0px;
+    margin: 5px 0px;
+    overflow: auto;
+    
+}
+
+.author-tab div p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ .gossip-tab a{
+         height : 100%;
+         
+ }

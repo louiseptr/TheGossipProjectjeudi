@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="navbar-brand"><%= link_to "The Gossip Project", gossips_path %></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <div class="nav-link"><%= link_to "Home", gossips_path %></div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"><%= link_to "Contact", contact_path %></div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"><%= link_to "Team", team_path %></div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"><%= link_to "S'inscrire", new_user_path %></div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link"><%= link_to "Se connecter", new_session_path %></div>
+                </li>
+                 <li class="nav-item">
+                 <div class="nav-link"><%= link_to "Se déconnecter", gossips_path %></div>
+                 </li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">S'inscrire/ Se connecter </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" ><%= link_to "S'inscrire", new_user_path %>S'inscrire</a>
+    <a class="dropdown-item" ><%= link_to "Se", new_session_path %>Se connecter</a>
+  </div>
+</div>
+        </nav>
+        <%= yield %>
+             
+  </body>
+</html>

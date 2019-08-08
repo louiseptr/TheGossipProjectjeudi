@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>City n°<%=@city.id %></h2>
+  <div class="bd-example">
+    <dl>
+        <dt>Nom</dt>
+            <dd><%= @city.name %> </dd>
+    </dl>
+  </div>
+  </div>
+<div class="container text-center">    
+    <div class="row">
+        <div class='col-sm-2'>
+        </div>
+        <div class="col-sm-9">
+            <div class='row'>
+                <%@city.users.each do |user|%>
+                    <div class='col-sm-4 '>
+                        <div class="list-group city-user" role='tablist'>
+                            <a href="<%= user_path(user.id)%>" class="list-group-item list-group-item-action" role='tab'>
+                                <h5 class="mb-1"><%= user.first_name%></h5>
+                                <p><%= user.email%></p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class='col-sm-8 '></div>
+                    <%user.gossips.each do |gossip|%>
+                        <div class='col-sm-4'></div>
+                        <div class='col-sm-8'>
+                            <div class="list-group" role='tablist'>
+                                <a href="<%= gossip_path(gossip.id)%>" class="list-group-item list-group-item-action" role='tab'>
+                                <div class="d-flex w-80 justify-content-between">
+                                    <h5 class="mb-1"><%= gossip.title%></h5>
+                                    <small><%= gossip.created_at%></small>
+                                </div>
+                                <p class="mb-1 text-left"><%= gossip.content%></p>
+                                </a>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    <div class='col-sm-2'></div>
+    </div>
+</div>
